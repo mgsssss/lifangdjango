@@ -58,7 +58,7 @@ urlpatterns = [
     
     #re_path 정확히 일치하는 애만 연결
     re_path(r'^admin/manual/$', TemplateView.as_view(template_name='admin/manual.html', 
-            extra_context={'title' : '매뉴얼', 'site_title':'리팡어드민', 'site_header':'리팡어드민'})),
+            extra_context={'title' : '매뉴얼', 'site_title':'리팡 관리자 화면', 'site_header':'리팡 관리자 화면'})),
     path('admin/', admin.site.urls),
     path('baton/', include('baton.urls')),   
     path('', index),

@@ -40,51 +40,58 @@ ALLOWED_HOSTS = ["*"]
 # Application definition
 
 BATON = {    
-    'SITE_HEADER': '리팡 관리자',
-    'SITE_TITLE': '리팡 관리자',
-    'INDEX_TILTE': '리팡 관리자',
-    'SUPPORT_HREF': 'http://naver.com',
+    'SITE_HEADER': '리팡 관리자 화면',
+    'SITE_TITLE': '리팡 관리자 화면',
+    'INDEX_TILTE': '리팡 관리자 화면',
+    'SUPPORT_HREF': 'https://www.lifanglaw.co.kr/',
     'COPYRIGHT' : 'copyright © 2023 lifang admin',
-    'POWERED_BY': '<a href="http://naver.com">리팡 홈페이지</a>',
-    'MENU_TITLE': '리팡 어드민',
+    'POWERED_BY': '<a href="https://www.lifanglaw.co.kr/">리팡 외국법자문법률사무소 홈페이지</a>',
+    'MENU_TITLE': '리팡 관리자 화면',
     'MENU': (
     { 'type': 'title', 'label': 'main', 'apps': ('lifanguser','order', 'product') },
     {
         'type': 'app',
         'name': 'lifanguser',
-        'label': '리팡사용자',
+        'label': '리팡 권한관리',
         'icon': 'fa fa-lock',
         'models': (
             {
                 'name': 'lifanguser',
-                'label': '리팡사용자'
+                'label': '리팡 권한관리'
             },
    
         )
     },
-    { 'type': 'free', 'label': '주문', 'default_open': True, 'children': [
-        { 'type': 'model', 'label': '주문', 'name': 'order', 'app': 'order' },
-        { 'type': 'free', 'label': '주문 날짜뷰', 'url': '/admin/order/order/date_view/' },
+    
+    {
+        'type': 'app',
+        'name': 'product',
+        'label': '기업목록',
+        'models': (
+            {
+                'name': 'product',
+                'label': '기업목록'
+            },
+   
+        )
+    }, 
+    
+    
+    
+       
+    
+    { 'type': 'free', 'label': '프로젝트목록', 'default_open': True, 'children': [
+        { 'type': 'model', 'label': '프로젝트', 'name': 'order', 'app': 'order' },
+        { 'type': 'free', 'label': '프로젝트2', 'url': '/admin/order/order/date_view/' },
     ] 
     
     },         
    
         
-      {
-        'type': 'app',
-        'name': 'product',
-        'label': '상품',
-        'models': (
-            {
-                'name': 'product',
-                'label': '상품'
-            },
-   
-        )
-     },        
+         
         
     
-     { 'type': 'free', 'label': '매뉴얼', 'url': '/admin/manual/' 
+     { 'type': 'free', 'label': '통계', 'url': '/admin/manual/' 
      
      
      

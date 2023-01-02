@@ -8,8 +8,8 @@ from django.utils.html import format_html
 
 class ProductAdmin(admin.ModelAdmin):
     list_display = ('name', 'price_format', 'styled_stock' )
-    
     list_filter = ('stock',)
+    search_fields = ['name', 'descrtiption']
     
     def price_format(self,obj):
       price = intcomma(obj.price)

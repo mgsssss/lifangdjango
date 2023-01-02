@@ -13,11 +13,10 @@ class Product(models.Model):
     
     descrtiption = models.TextField(verbose_name='상품설명')
 
-    stock = models.IntegerField(verbose_name='재고')  
+    stock = models.IntegerField(verbose_name='재고')
     
     registered_dttm = models.DateTimeField(auto_now_add=True,
                                 verbose_name='등록날짜')
-    
     
     def __str__(self):
         return self.name
