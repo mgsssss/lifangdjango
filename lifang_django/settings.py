@@ -40,7 +40,7 @@ ALLOWED_HOSTS = ["*"]
 # Application definition
 
 BATON = {    
-    'SITE_HEADER': '리팡 관리자 화면2',
+    'SITE_HEADER': '리팡 관리자 화면',
     'SITE_TITLE': '리팡 관리자 화면',
     'INDEX_TILTE': '리팡 관리자 화면',
     'SUPPORT_HREF': 'https://www.lifanglaw.co.kr/',
