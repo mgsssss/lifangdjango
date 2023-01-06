@@ -7,7 +7,7 @@ from django.utils.html import format_html
 
 
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ('name', 'price_format', 'styled_stock' )
+    list_display = ('client_company', 'brand_company', 'name',  'styled_stock' )
     list_filter = ('stock',)
     search_fields = ['name', 'descrtiption']
     
@@ -41,5 +41,5 @@ class ProductAdmin(admin.ModelAdmin):
             
     
     price_format.short_description = '가격'
-    styled_stock.short_description = '재고'
+    styled_stock.short_description = '발견한 가품수'
 admin.site.register(Product, ProductAdmin)

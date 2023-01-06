@@ -18,44 +18,33 @@
 
              <a class="btn btn-primary mb-5" href="/admin/order/order">돌아가기</a>
             
-             <h3>최근 일주일 주문</h3>
+             <h3>프로젝트</h3>
 
+                         
              <table class ="table table-light">
         
                 <thead class ="thead-light">
                 
                     <tr>
-                        <th scope="col">사용자</th>
-                        <th scope="col">상품</th>
-                        <th scope="col">상태</th>
-                    </tr>
-                
-                
-                </thead>    
-             
-                <tbody class ="text-dark">
-                    {% for d in week_data %}
-                    <tr>
-                        <th> {{ d.lifanguser }}</th>
-                        <th> {{ d.product }}</th>
-                        <th> {{ d.status }}</th>
-                    </tr>
-                    {% endfor %}
-                
-                </tbody>    
-              
-             </table>
+                        <th scope="col">대표이미지</th>
+                        <th scope="col">상품명</th>
+                        <th scope="col">브랜드명</th>
+                        <th scope="col">기업명</th>
+                        <th scope="col">카테고리1</th>
+                        <th scope="col">카테고리2</th>
+                        <th scope="col">국가</th>
+                        <th scope="col">유통채널</th>
+                        <th scope="col">가격</th>
+                        <th scope="col">판매수량</th>
+                        <th scope="col">판매상명</th>
+                        <th scope="col">단속근거</th>
+                        <th scope="col">침해유형1</th>
+                        <th scope="col">침해유형2</th>
+                        <th scope="col">신고일자</th>
+                        <th scope="col">신고결과</th>
+                        <th scope="col">상품URL</th>
+                        <th scope="col">비고</th>
 
-             <h3>과거 주문</h3>
-             
-             <table class ="table table-light">
-        
-                <thead class ="thead-light">
-                
-                    <tr>
-                        <th scope="col">사용자</th>
-                        <th scope="col">상품</th>
-                        <th scope="col">상태</th>
                     </tr>
                 
                 
@@ -67,6 +56,22 @@
                         <th> {{ d.lifanguser }}</th>
                         <th> {{ d.product }}</th>
                         <th> {{ d.status }}</th>
+                        <th> {{ d.product }}</th>
+                        <th> {{ d.product }}</th>
+                        <th> {{ d.product }}</th>
+                        <th> {{ d.product }}</th>
+                        <th> {{ d.product }}</th>
+                        <th> {{ d.product }}</th>
+                        <th> {{ d.product }}</th>
+                        <th> {{ d.product }}</th>
+                        <th> {{ d.product }}</th>
+                        <th> {{ d.product }}</th>
+                        <th> {{ d.product }}</th>
+                        <th> {{ d.product }}</th>
+                        <th> {{ d.product }}</th>
+                        <th> {{ d.product }}</th>
+                        <th> {{ d.product }}</th>
+                        <th> {{ d.product }}</th>
                     </tr>
                     {% endfor %}
                 

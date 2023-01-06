@@ -45,7 +45,7 @@ refund.short_description = '환불'
 class OrderAdmin(admin.ModelAdmin):
     
     list_filter = ('status',)
-    list_display = ('lifanguser', 'product', 'styled_status', 'action')
+    list_display = ('main_img', 'product', 'category1', 'category2', 'nation', 'channel', 'product_price', 'vendor_name', 'crackdown', 'prejudice1', 'prejudice2', 'report_date', 'report_result',  'url', 'etc', )
     change_list_template = 'admin/order_change_list.html'
     change_form_template = 'admin/order_change_form.html'
     

@@ -8,7 +8,55 @@ class Order(models.Model):
     
     #작성자는 다른 모델에서 연결을 해서 가져온다.
     lifanguser = models.ForeignKey('lifanguser.Lifanguser', on_delete=models.CASCADE, verbose_name='사용자' )
-    product = models.ForeignKey('product.Product', on_delete=models.CASCADE, verbose_name='상품' )
+    
+    main_img = models.CharField(max_length=256,
+                                verbose_name='대표이미지', null=True,default='')
+    
+    product = models.ForeignKey('product.Product', on_delete=models.CASCADE, verbose_name='상품명' )
+
+    
+    category1 = models.CharField(max_length=256,
+                                verbose_name='카테고리1', null=True,default='')
+    
+    category2 = models.CharField(max_length=256,
+                                verbose_name='카테고리2', null=True,default='')
+    
+    nation = models.CharField(max_length=256,
+                                verbose_name='국가', null=True,default='')
+    
+    channel = models.CharField(max_length=256,
+                                verbose_name='유통채널', null=True,default='')
+    
+    product_price = models.CharField(max_length=256,
+                                verbose_name='가격', null=True,default='')
+    
+    # sales_rate = models.CharField(max_length=256,
+    #                             verbose_name='판매수량', null=True,default='')    
+    
+    vendor_name = models.CharField(max_length=256,
+                                verbose_name='판매상명', null=True,default='')
+    
+    crackdown = models.CharField(max_length=256,
+                                verbose_name='단속근거', null=True,default='')
+    
+    prejudice1 = models.CharField(max_length=256,
+                                verbose_name='침해유형1', null=True,default='')
+    
+    prejudice2 = models.CharField(max_length=256,
+                                verbose_name='침해유형2', null=True,default='')
+    
+    report_date = models.CharField(max_length=256,
+                                verbose_name='신고일자', null=True,default='')
+    
+    report_result = models.CharField(max_length=256,
+                                verbose_name='신고결과', null=True,default='')
+    
+    url = models.CharField(max_length=256,
+                                verbose_name='상품URL', null=True,default='')
+
+    etc = models.CharField(max_length=256,
+                                verbose_name='비고', null=True,default='')
+    
     quantity = models.IntegerField(verbose_name='수량')
     status = models.CharField(
         choices=(
@@ -28,7 +76,7 @@ class Order(models.Model):
    
     class Meta:
         db_table = 'lifang_django_order'
-        verbose_name = '주문'
-        verbose_name_plural = '주문'
+        verbose_name = '프로젝트'
+        verbose_name_plural = '프로젝트'
         
     
