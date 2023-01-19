@@ -49,11 +49,7 @@ class OrderAdmin(admin.ModelAdmin):
     change_list_template = 'admin/order_change_list.html'
     change_form_template = 'admin/order_change_form.html'
     
-    actions = [
-        
-        refund
-        
-    ]
+    actions = [ refund ]
     
     def action(self,obj):
         
@@ -92,24 +88,21 @@ class OrderAdmin(admin.ModelAdmin):
                             object_id=obj.pk,
                             object_repr='주문 환불',
                             action_flag=CHANGE,
-                            change_message='주문 발행'
-
-                            
-                        )
+                            change_message='주문 발행')
 
                     qs.update(status='환불')
                 
         return super().changelist_view(request, extra_context)
     
-     
+    
     
     def changeform_view(self, request, object_id=None, form_url='', extra_context=None):
     # 우리가 원하는 동작
-        order = Order.objects.get(pk=object_id)
-        extra_context = { 'title' : f'{order.lifanguser.email}의 {order.product.name} 주문 수정하기' }
-        extra_context['show_save_and_add_another'] = False
-        extra_context['show_save_and_continue'] = False
-        
+        #order = Order.objects.get(pk=object_id)
+        #extra_context = { 'title' : f'{order.lifanguser.email}의 {order.product.name} 주문 수정하기' }
+        #extra_context['show_save_and_add_another'] = False
+        #extra_context['show_save_and_continue'] = False
+        extra_context = []
         return super().changeform_view(request, object_id, form_url, extra_context)
             
     
@@ -130,13 +123,10 @@ class OrderAdmin(admin.ModelAdmin):
         context = dict(
             self.admin_site.each_context(request),
             week_data = week_data,
-            data = data
-        )
+            data = data)
         return TemplateResponse(request, 'admin/order_date_view.html', context)
         
     styled_status.short_description = '상태'
     
-    
-    
-    
+
 admin.site.register(Order, OrderAdmin)

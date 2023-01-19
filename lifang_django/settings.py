@@ -39,7 +39,7 @@ ALLOWED_HOSTS = ["*"]
 
 # Application definition
 
-BATON = {    
+BATON = {
     'SITE_HEADER': '리팡 관리자 화면',
     'SITE_TITLE': '리팡 관리자 화면',
     'INDEX_TILTE': '리팡 관리자 화면',
@@ -48,16 +48,24 @@ BATON = {
     'POWERED_BY': '<a href="https://www.lifanglaw.co.kr/">리팡 외국법자문법률사무소 홈페이지</a>',
     'MENU_TITLE': '리팡 관리자 화면',
     'MENU': (
-    { 'type': 'title', 'label': 'main', 'apps': ('lifanguser','order', 'product') },
+    { 'type': 'title', 'label': 'main', 'apps': ('lifanguser','order', 'product', 'project', 'auth') },
     {
         'type': 'app',
         'name': 'lifanguser',
-        'label': '리팡 권한관리',
+        'label': '관리',
         'icon': 'fa fa-lock',
         'models': (
             {
-                'name': 'lifanguser',
-                'label': '리팡 권한관리'
+                'name': 'company',
+                'label': '회사 관리'
+            },
+            {
+                'name': 'category',
+                'label': '메인 카테고리'
+            },
+            {
+                'name': 'subcategory',
+                'label': '서브 카테고리'
             },
    
         )
@@ -65,37 +73,45 @@ BATON = {
     
     {
         'type': 'app',
-        'name': 'product',
-        'label': '기업목록',
+        'name': 'auth',
+        'label': '회원 관리',
+        'icon': 'fa fa-lock',
         'models': (
             {
-                'name': 'product',
-                'label': '기업목록'
+                'name': 'user',
+                'label': '유저'
             },
-   
+            {
+                'name': 'group',
+                'label': '그룹'
+            },
         )
-    }, 
-    
-    
-    
-       
-    
-    { 'type': 'free', 'label': '프로젝트목록', 'default_open': True, 'children': [
-        { 'type': 'model', 'label': '프로젝트', 'name': 'order', 'app': 'order' },
-        { 'type': 'free', 'label': '프로젝트2', 'url': '/admin/order/order/date_view/' },
-    ] 
-    
-    },         
-   
-        
-         
-        
-    
-     { 'type': 'free', 'label': '통계', 'url': '/admin/manual/' 
+    },
+    {
+        'type': 'app',
+        'name': 'product',
+        'label': '프로젝트',
+        'icon': 'fa',
+        'models': (
+            {
+                'name': 'project',
+                'label': '프로젝트'
+            },
+            {
+                'name': 'product',
+                'label': '상품'
+            },
+        )
+    },    
+    # { 'type': 'free', 'label': '프로젝트목록', 'default_open': True, 'children': [
+    #     { 'type': 'model', 'label': '프로젝트', 'name': 'order', 'app': 'order' },
      
-     
-     
-     },
+    #     { 'type': 'free', 'label': '프로젝트2', 'url': '/admin/order/order/date_view/' },
+    # ]
+    # },
+    {
+        'type': 'free', 'label': '통계', 'url': '/admin/manual/' 
+    },
    
     ),
 
@@ -160,6 +176,17 @@ DATABASES = {
     }
 }
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',  # mysql 엔진 설정
+        'NAME': 'lifang',  # 데이터베이스 이름
+        'USER': 'root',  # 데이터베이스 연결시 사용할 유저 이름
+        'PASSWORD': 'qweqwe',  # 유저 패스워드
+        'HOST': '127.0.0.1',
+        'PORT': '3306'
+    },
+}
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -210,3 +237,6 @@ STATIC_ROOT=os.path.join(BASE_DIR, 'staticfiles')
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

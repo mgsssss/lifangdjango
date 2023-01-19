@@ -21,12 +21,15 @@ from django.template.response import TemplateResponse
 from django.urls import path, include, re_path
 from lifanguser.views import index, logout, RegisterView, LoginView
 from product.views import (ProductList, ProductCreate, ProductDetail,
-     ProductListAPI, ProductDetailAPI)
+     ProductListAPI, ProductDetailAPI, ProductAPIView)
 from order.views import OrderCreate, OrderList
 from django.views.generic import TemplateView
 
 from order.models import Order
 from .functions import get_exchange
+
+from django.conf import settings
+from django.conf.urls.static import static
 
 origin_index = admin.site.index
 
@@ -43,9 +46,8 @@ def lifang_admin_index(request, extra_context=None):
         order_data[date_key] = order_cnt
         
     extra_context = {
-        
         'orders' : order_data,
-        'exchange' : get_exchange()
+        #'exchange' : get_exchange()
     }
     
     
@@ -60,7 +62,7 @@ urlpatterns = [
     re_path(r'^admin/manual/$', TemplateView.as_view(template_name='admin/manual.html', 
             extra_context={'title' : '매뉴얼', 'site_title':'리팡 관리자 화면', 'site_header':'리팡 관리자 화면'})),
     path('admin/', admin.site.urls),
-    path('baton/', include('baton.urls')),   
+    path('baton/', include('baton.urls')),
     path('', index),
     path('logout/',logout),
     path('register/', RegisterView.as_view()),
@@ -72,6 +74,7 @@ urlpatterns = [
     path('order/', OrderList.as_view()),
     
     path('api/product/',ProductListAPI.as_view()),
-    path('api/product/<int:pk>',ProductDetailAPI.as_view())
+    path('api/product/<int:pk>',ProductDetailAPI.as_view()),
     
-]
+    path('api/product_apiview/',ProductAPIView.as_view()),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

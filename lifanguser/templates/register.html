@@ -33,8 +33,6 @@
         <input type="text" class="form-control" id="username" placeholder="사용자 이름" name="username">
     </div>
 
-
-
     <div class="mb-3" text:center;>
         <label for="password" class="form-label" >비밀번호</label>
         <input type="password" class="form-control" id="password" placeholder="비밀번호" name="password">
@@ -44,9 +42,6 @@
     {% csrf_token %}
     <!--폼 반복문-->
     {% for field in  form %}
-
-        
-                    
         <!--직접 폼태그를 작성하여 로그인-->
         <div class="form-group">
         <label for="{{field.id_for_label}}">{{field.label}}</label>
@@ -56,11 +51,7 @@
         {% if field.errors %}
         <span style="color:red">{{ field.errors }}</span>
         {% endif %}
-
-    {% endfor %}    
-    
-    
-    
+    {% endfor %}
     <button type="submit" class="btn btn-primary">회원가입</button>
     </form>
 </div>
